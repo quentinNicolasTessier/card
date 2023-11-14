@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameCardController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto;  width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .hand{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .card{
+        height: 200px;
+        width: 150px;
+        border: 1px solid BLACK;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1>Jeu de Carte</h1>
+    <h2>Non trié</h2>
+    <ul class="hand">
+    {% for card in game %}
+
+        <li class="card">{{ card.couleur }} - {{ card.valeur }}</li>
+    {% endfor %}
+    </ul>
+    <h2>Trié</h2>
+    <ul class="hand">
+    {% for card in sorted %}
+
+        <li class="card">{{ card.couleur }} - {{ card.valeur }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
